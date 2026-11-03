@@ -14,7 +14,6 @@ const invitationDetails = {
   venueAddress: "X2FC+WHF First 6th of October",
   mapUrl: "https://maps.app.goo.gl/UFnxJr27ZL8i9jn6A",
   rsvpDeadline: "Tuesday, 10 November 2026 at 11:59 PM",
-  rsvpEmail: "a7md.sala7.1999@gmail.com",
   musicSrc: "",
   supabaseUrl: "https://xeusojhztxlriswqbngf.supabase.co",
   supabasePublishableKey: "sb_publishable_WYqNvpd2sGCWKLrcZzH9eg_cBD3XPhL"
@@ -253,28 +252,55 @@ if (invitationDetails.musicSrc) {
   });
 }
 
-// Static-site RSVP: build a prefilled email so no guest data is sent to a server.
-byId("rsvpForm").addEventListener("submit", (event) => {
+// Save RSVP replies directly to Supabase so guests do not need an email app.
+const rsvpForm = byId("rsvpForm");
+const rsvpStatus = byId("rsvpStatus");
+const rsvpSubmit = rsvpForm.querySelector("button[type='submit']");
+rsvpForm.addEventListener("submit", async (event) => {
   event.preventDefault();
-  const status = byId("rsvpStatus");
-  if (!invitationDetails.rsvpEmail || !invitationDetails.rsvpEmail.includes("@")) {
-    status.textContent = "To enable RSVP, add your email address to rsvpEmail in script.js.";
+  const supabaseUrl = invitationDetails.supabaseUrl.replace(/\/$/, "");
+  const supabaseKey = invitationDetails.supabasePublishableKey;
+  if (!supabaseUrl || !supabaseKey) {
+    rsvpStatus.textContent = "Online RSVP is temporarily unavailable. Please contact the couple.";
     return;
   }
-  const formData = new FormData(event.currentTarget);
+
+  const formData = new FormData(rsvpForm);
   const guestName = String(formData.get("guestName") || "").trim();
   const attendance = String(formData.get("attendance") || "");
-  const guests = String(formData.get("guests") || "1");
+  const guestCount = Number(formData.get("guests") || 1);
   const note = String(formData.get("note") || "").trim();
-  const subject = `Wedding RSVP — ${invitationDetails.nameOne} & ${invitationDetails.nameTwo}`;
-  const body = [
-    `Name: ${guestName}`,
-    `Reply: ${attendance}`,
-    `Number of guests: ${guests}`,
-    note ? `Note: ${note}` : ""
-  ].filter(Boolean).join("\n");
-  status.textContent = "Your email app is opening with your RSVP. Please press Send to finish.";
-  window.location.href = `mailto:${encodeURIComponent(invitationDetails.rsvpEmail)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  if (!guestName || !Number.isInteger(guestCount) || guestCount < 1 || guestCount > 10) {
+    rsvpStatus.textContent = "Please check your name and number of guests, then try again.";
+    return;
+  }
+
+  rsvpSubmit.disabled = true;
+  rsvpStatus.textContent = "Sending your reply…";
+  try {
+    const response = await fetch(`${supabaseUrl}/rest/v1/wedding_rsvps`, {
+      method: "POST",
+      headers: {
+        apikey: supabaseKey,
+        Authorization: `Bearer ${supabaseKey}`,
+        "Content-Type": "application/json",
+        Prefer: "return=minimal"
+      },
+      body: JSON.stringify({
+        guest_name: guestName,
+        attendance,
+        guest_count: guestCount,
+        note
+      })
+    });
+    if (!response.ok) throw new Error("RSVP could not be saved");
+    rsvpForm.reset();
+    rsvpStatus.textContent = "Thank you! Your RSVP has been received.";
+  } catch {
+    rsvpStatus.textContent = "We couldn’t save your RSVP. Please try again shortly.";
+  } finally {
+    rsvpSubmit.disabled = false;
+  }
 });
 
 // Public guestbook. Configure a Supabase project and the policies in README.md.
