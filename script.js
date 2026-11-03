@@ -36,7 +36,7 @@ setText("[data-time-label]", invitationDetails.timeLabel);
 setText("[data-venue-name]", invitationDetails.venueName);
 setText("[data-venue-address]", invitationDetails.venueAddress);
 setText("[data-rsvp-deadline]", invitationDetails.rsvpDeadline);
-document.title = `${invitationDetails.nameOne} & ${invitationDetails.nameTwo} — Wedding Invitation`;
+document.title = `${invitationDetails.nameOne} & ${invitationDetails.nameTwo} — Engagement Invitation`;
 byId("copyrightYear").textContent = String(new Date().getFullYear());
 
 // Open the envelope, then reveal the invitation page.
@@ -227,7 +227,7 @@ if (mapQueryParts.length) {
 
 // Music is optional. Add a licensed audio file and enter its path in musicSrc.
 const musicButton = byId("musicToggle");
-const audio = byId("weddingMusic");
+const audio = byId("engagementMusic");
 if (invitationDetails.musicSrc) {
   audio.src = invitationDetails.musicSrc;
   musicButton.hidden = false;
