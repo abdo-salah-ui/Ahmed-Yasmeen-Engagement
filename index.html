@@ -8,7 +8,7 @@
   <title>Ahmed Salah &amp; Yasmeen Hassan — Wedding Invitation</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="styles.css">
-  <script src="script.js?v=20261103-guestbook" defer></script>
+  <script src="script.js?v=20261103-rsvp-database" defer></script>
 </head>
 <body class="intro-locked">
   <div class="page-wash" aria-hidden="true"></div>
@@ -163,16 +163,16 @@
       <div class="rsvp-decoration" aria-hidden="true">✳</div>
       <div class="rsvp-inner section-wrap">
         <p class="eyebrow">Kindly reply</p><h2 id="rsvp-title">Will you celebrate<br>with us?</h2>
-        <p class="rsvp-copy">Your presence would mean the world to us. Please let us know by sending your reply below.</p>
+        <p class="rsvp-copy">Your presence would mean the world to us. Please send your reply below. It will be saved privately for the couple.</p>
         <form class="rsvp-form" id="rsvpForm">
-          <label class="form-field"><span>Your name</span><input name="guestName" autocomplete="name" placeholder="Write your name" required></label>
+          <label class="form-field"><span>Your name</span><input name="guestName" maxlength="100" autocomplete="name" placeholder="Write your name" required></label>
           <div class="form-row">
             <label class="form-field"><span>Your reply</span><select name="attendance" required><option value="" selected disabled>Please choose</option><option value="joyfully accepts">Joyfully accepts</option><option value="regretfully declines">Regretfully declines</option></select></label>
             <label class="form-field"><span>Number of guests</span><input name="guests" type="number" min="1" max="10" value="1" inputmode="numeric"></label>
           </div>
-          <label class="form-field"><span>A note for the couple <em>(optional)</em></span><textarea name="note" rows="3" placeholder="Share a little message"></textarea></label>
+          <label class="form-field"><span>A note for the couple <em>(optional)</em></span><textarea name="note" rows="3" maxlength="500" placeholder="Share a little message"></textarea></label>
           <button class="button button-light" type="submit">Send your RSVP <span aria-hidden="true">↗</span></button>
-          <p class="form-note" id="rsvpStatus" role="status" aria-live="polite">Please reply by <span data-rsvp-deadline>[RSVP deadline]</span>.</p>
+          <p class="form-note" id="rsvpStatus" role="status" aria-live="polite">Please reply by <span data-rsvp-deadline>[RSVP deadline]</span>. Your reply will be visible only to the couple.</p>
         </form>
       </div>
     </section>
