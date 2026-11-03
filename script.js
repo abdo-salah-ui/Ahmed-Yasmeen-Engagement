@@ -16,8 +16,8 @@ const invitationDetails = {
   rsvpDeadline: "Tuesday, 10 November 2026 at 11:59 PM",
   rsvpEmail: "a7md.sala7.1999@gmail.com",
   musicSrc: "",
-  supabaseUrl: "",
-  supabasePublishableKey: ""
+  supabaseUrl: "https://xeusojhztxlriswqbngf.supabase.co",
+  supabasePublishableKey: "sb_publishable_WYqNvpd2sGCWKLrcZzH9eg_cBD3XPhL"
 };
 
 const byId = (id) => document.getElementById(id);
