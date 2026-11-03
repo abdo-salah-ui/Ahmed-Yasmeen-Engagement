@@ -14,7 +14,7 @@ const invitationDetails = {
   venueAddress: "X2FC+WHF First 6th of October",
   mapUrl: "https://maps.app.goo.gl/UFnxJr27ZL8i9jn6A",
   rsvpDeadline: "[RSVP deadline]",
-  rsvpEmail: "",
+  rsvpEmail: "a7md.sala7.1999@gmail.com",
   musicSrc: "",
   supabaseUrl: "",
   supabasePublishableKey: ""
