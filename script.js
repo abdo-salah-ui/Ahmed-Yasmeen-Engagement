@@ -278,7 +278,7 @@ rsvpForm.addEventListener("submit", async (event) => {
   rsvpSubmit.disabled = true;
   rsvpStatus.textContent = "Sending your reply…";
   try {
-    const response = await fetch(`${supabaseUrl}/rest/v1/wedding_rsvps`, {
+    const response = await fetch(`${supabaseUrl}/rest/v1/engagement_rsvps`, {
       method: "POST",
       headers: {
         apikey: supabaseKey,
