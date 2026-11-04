@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#3b1019">
+  <title>A &amp; Y — Private Dashboard</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="admin.css?v=20261104-1">
+  <script src="admin.js?v=20261104-1" defer></script>
+</head>
+<body>
+  <main class="admin-shell">
+    <header class="admin-topbar">
+      <a class="admin-brand" href="./" aria-label="Back to the invitation"><span class="brand-heart">♡</span> A &amp; Y <span class="brand-subtitle">PRIVATE DASHBOARD</span></a>
+      <button class="text-button" id="signOutButton" type="button" hidden>Sign out</button>
+    </header>
+
+    <section class="login-card" id="loginPanel" aria-labelledby="loginTitle">
+      <p class="eyebrow">For the couple</p>
+      <h1 id="loginTitle">Welcome back</h1>
+      <p class="intro-copy">Sign in to review RSVPs and approve guestbook messages.</p>
+      <form id="loginForm" class="login-form">
+        <label for="username">Username</label>
+        <input id="username" name="username" autocomplete="username" required>
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required>
+        <button class="primary-button" type="submit">Sign in <span aria-hidden="true">↗</span></button>
+      </form>
+      <p class="status" id="loginStatus" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="dashboard" id="dashboardPanel" hidden aria-labelledby="dashboardTitle">
+      <div class="dashboard-heading">
+        <div>
+          <p class="eyebrow">Ahmed &amp; Yasmeen</p>
+          <h1 id="dashboardTitle">Your guests</h1>
+          <p class="intro-copy">Review every reply and choose which guestbook notes become public.</p>
+        </div>
+        <button class="outline-button" id="refreshButton" type="button"><span aria-hidden="true">↻</span> Refresh</button>
+      </div>
+
+      <div class="summary-grid" aria-label="Guest response totals">
+        <article class="summary-card"><span class="summary-label">RSVPs</span><strong id="rsvpTotal">0</strong><small id="rsvpYesNo">0 attending · 0 unable</small></article>
+        <article class="summary-card"><span class="summary-label">Guestbook</span><strong id="guestbookTotal">0</strong><small><span id="pendingTotal">0</span> waiting for approval</small></article>
+      </div>
+
+      <div class="dashboard-tabs" role="tablist" aria-label="Guest responses">
+        <button class="tab-button is-active" id="rsvpTab" type="button" role="tab" aria-selected="true" aria-controls="rsvpPanel">RSVPs <span id="rsvpTabCount">0</span></button>
+        <button class="tab-button" id="guestbookTab" type="button" role="tab" aria-selected="false" aria-controls="guestbookPanel">Guestbook <span id="guestbookTabCount">0</span></button>
+      </div>
+
+      <p class="dashboard-status" id="dashboardStatus" role="status" aria-live="polite"></p>
+
+      <section class="response-panel" id="rsvpPanel" role="tabpanel" aria-labelledby="rsvpTab">
+        <div class="panel-heading"><div><p class="eyebrow">Private responses</p><h2>RSVPs</h2></div></div>
+        <div class="response-list" id="rsvpList"><p class="empty-state">Sign in to load replies.</p></div>
+      </section>
+
+      <section class="response-panel" id="guestbookPanel" role="tabpanel" aria-labelledby="guestbookTab" hidden>
+        <div class="panel-heading"><div><p class="eyebrow">Review before sharing</p><h2>Guestbook notes</h2></div>
+          <label class="toggle-label"><input id="showApprovedOnly" type="checkbox"> <span>Waiting only</span></label>
+        </div>
+        <div class="response-list" id="guestbookList"><p class="empty-state">Sign in to load messages.</p></div>
+      </section>
+      <footer class="admin-footer">Only the couple can access this dashboard. Approved guestbook messages appear on the invitation.</footer>
+    </section>
+  </main>
+</body>
+</html>
