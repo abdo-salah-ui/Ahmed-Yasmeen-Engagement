@@ -450,22 +450,41 @@
 }
 
 /* Balance the envelope bouquets and let their outer edges fade like the other cards */
+.envelope-flower { z-index: 1; filter: none; }
 .envelope-flower-left {
-  top: -8%;
-  left: -18%;
+  top: -16%;
+  left: -24%;
   right: auto;
-  width: clamp(124px, 42%, 188px);
+  width: clamp(136px, 45%, 200px);
   transform: none;
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 100%);
-  mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 100%);
 }
 .envelope-flower-right {
-  top: -8%;
-  right: -18%;
+  top: -16%;
+  right: -24%;
   left: auto;
-  width: clamp(118px, 40%, 180px);
+  width: clamp(136px, 45%, 200px);
   transform: none;
-  -webkit-mask-image: linear-gradient(270deg, transparent 0%, #000 18%, #000 100%);
-  mask-image: linear-gradient(270deg, transparent 0%, #000 18%, #000 100%);
+  -webkit-mask-image: linear-gradient(270deg, transparent 0%, #000 8%, #000 100%);
+  mask-image: linear-gradient(270deg, transparent 0%, #000 8%, #000 100%);
+}
+@keyframes flower-arrives {
+  0% { opacity: 0; transform: translate(-18px,24px) scaleX(-1) scale(.55) rotate(-13deg); }
+  65% { opacity: .94; transform: translate(4px,-5px) scaleX(-1) scale(1.06) rotate(2deg); }
+  100% { opacity: .9; transform: scaleX(-1); }
+}
+@keyframes flower-arrives-right {
+  0% { opacity: 0; transform: translate(18px,18px) scale(.55) rotate(12deg); }
+  65% { opacity: .9; transform: translate(-3px,-4px) scale(1.04) rotate(-2deg); }
+  100% { opacity: .86; transform: none; }
+}
+@media (max-width: 360px) {
+  .envelope-flower-left, .envelope-flower-right {
+    top: -12%;
+    width: clamp(96px, 38%, 132px);
+  }
+  .envelope-flower-left { left: -28%; }
+  .envelope-flower-right { display: block; right: -28%; }
 }
 
