@@ -13,10 +13,14 @@
   .envelope-flower-left { top: -7%; left: -10%; width: min(138px, 55%); }
 }
 
-.countdown-section > *, .detail-card > *, .rsvp-inner > *, .guestbook-panel > * {
+.countdown-section > *,
+.detail-card > *:not(.detail-number),
+.rsvp-inner > *,
+.guestbook-panel > * {
   position: relative;
   z-index: 1;
 }
+.detail-card > .detail-number { position: absolute; z-index: 1; }
 .countdown-section::before, .countdown-section::after,
 .detail-card::after, .map-card::after,
 .rsvp-inner::before, .rsvp-inner::after,
