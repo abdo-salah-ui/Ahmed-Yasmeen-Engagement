@@ -341,3 +341,35 @@
   .envelope-letter > * { top: -30px; }
 }
 
+/* Keep both names on one line; move the bouquets clear of the title */
+.hero-copy {
+  padding-right: 30px;
+  padding-left: 30px;
+}
+.hero h1 [data-couple-two] { white-space: nowrap; }
+.hero-flower {
+  top: auto;
+  bottom: 10px;
+  width: clamp(110px, 12vw, 138px);
+  opacity: .62;
+  transform: none;
+}
+.hero-flower-left {
+  left: 10px;
+  right: auto;
+  transform: scaleX(-1);
+}
+.hero-flower-right { right: 10px; left: auto; }
+@media (max-width: 760px) {
+  .hero-copy { padding: 34px 20px 36px; }
+  .hero-flower { width: clamp(68px, 16vw, 94px); bottom: 5px; opacity: .46; }
+  .hero-flower-left { left: 2px; }
+  .hero-flower-right { right: 2px; }
+}
+@media (max-width: 420px) {
+  .hero-copy { padding: 30px 12px 32px; }
+  .hero-flower { width: clamp(58px, 17vw, 72px); opacity: .38; }
+  .hero-flower-left { left: 0; }
+  .hero-flower-right { right: 0; }
+}
+
