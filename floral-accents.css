@@ -140,3 +140,64 @@
   .hero-flower { width: min(104px, 31vw); }
   .envelope-letter h2 { font-size: clamp(1.55rem, 7vw, 1.85rem); }
 }
+
+/* Unite the event details and RSVP into one invitation panel */
+.details-grid { grid-template-columns: minmax(0, 860px); justify-content: center; }
+.rsvp-inner {
+  width: min(100%, 820px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.rsvp-event-card {
+  width: min(100%, 540px);
+  min-height: 0;
+  margin: 0 auto 30px;
+  padding: 48px 30px 34px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.rsvp-event-card .detail-number { top: 19px; left: 22px; }
+.rsvp-event-card .detail-icon { margin-bottom: 7px; }
+.rsvp-event-card h3 {
+  margin: 0 0 13px;
+  color: #55232d;
+  font: italic 500 clamp(1.45rem, 3.2vw, 1.9rem)/1.2 var(--serif);
+}
+.rsvp-event-card .detail-primary { margin: 0; font-size: clamp(1rem, 2.2vw, 1.12rem); }
+.rsvp-event-card .detail-secondary { margin: 7px 0 0; }
+.event-rsvp-divider {
+  width: min(100%, 590px);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 auto 24px;
+  color: #d6bb88;
+}
+.event-rsvp-divider::before,
+.event-rsvp-divider::after {
+  content: '';
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, transparent, rgba(216,193,143,.5));
+}
+.event-rsvp-divider::after { transform: scaleX(-1); }
+.event-rsvp-divider span { font-size: .78rem; }
+.rsvp-inner .rsvp-form { width: min(100%, 590px); margin-top: 25px; }
+.rsvp-section .rsvp-copy { max-width: 510px; }
+
+@media (max-width: 760px) {
+  .details-grid { grid-template-columns: minmax(0, 1fr); }
+  .rsvp-inner { width: min(100%, 640px); }
+  .rsvp-event-card { margin-bottom: 24px; padding: 46px 20px 32px; }
+}
+@media (max-width: 420px) {
+  .rsvp-event-card { padding: 46px 15px 29px; }
+  .rsvp-event-card .detail-number { top: 15px; left: 15px; font-size: .5rem; }
+  .event-rsvp-divider { margin-bottom: 19px; }
+  .rsvp-inner .rsvp-form { margin-top: 19px; }
+}
+
