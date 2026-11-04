@@ -329,5 +329,9 @@
     24% { opacity: 1; transform: translateY(35%); }
     100% { opacity: 1; transform: translateY(-52%); }
   }
+  .envelope-letter > * {
+    position: relative;
+    top: -30px;
+  }
 }
 
