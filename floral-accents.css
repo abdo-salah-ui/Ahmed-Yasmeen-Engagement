@@ -449,3 +449,16 @@
   .hero-copy::after { right: -36px; width: 72px; height: 136px; opacity: .32; }
 }
 
+/* Use the same transparent bouquet on both sides of the envelope */
+.envelope-flower-left { transform: scaleX(-1); }
+@keyframes flower-arrives {
+  0% { opacity: 0; transform: translate(-18px,24px) scaleX(-1) scale(.55) rotate(-13deg); }
+  65% { opacity: .68; transform: translate(4px,-5px) scaleX(-1) scale(1.06) rotate(2deg); }
+  100% { opacity: .62; transform: scaleX(-1); }
+}
+@keyframes flower-arrives-right {
+  0% { opacity: 0; transform: translate(18px,18px) scale(.55) rotate(12deg); }
+  65% { opacity: .68; transform: translate(-3px,-4px) scale(1.04) rotate(-2deg); }
+  100% { opacity: .58; transform: none; }
+}
+
