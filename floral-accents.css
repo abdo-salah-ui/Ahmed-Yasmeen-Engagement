@@ -406,3 +406,46 @@
   .celebration-panel .event-rsvp-divider { margin-top: 17px; }
 }
 
+/* Match the hero bouquet edges to the countdown section */
+.hero-copy {
+  overflow: hidden;
+  isolation: isolate;
+}
+.hero-copy::before,
+.hero-copy::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  width: clamp(82px, 11vw, 122px);
+  height: clamp(154px, 21vw, 230px);
+  transform: translateY(-50%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  pointer-events: none;
+}
+.hero-copy::before {
+  left: 0;
+  background-image: url('assets/cover-flower-echo.png');
+  opacity: .6;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 100%);
+}
+.hero-copy::after {
+  right: 0;
+  background-image: url('assets/cover-flower-echo-right.png');
+  opacity: .58;
+  -webkit-mask-image: linear-gradient(270deg, transparent 0%, #000 18%, #000 100%);
+  mask-image: linear-gradient(270deg, transparent 0%, #000 18%, #000 100%);
+}
+.hero-flower { display: none; }
+@media (max-width: 760px) {
+  .hero-copy::before { left: -20px; opacity: .44; }
+  .hero-copy::after { right: -20px; opacity: .42; }
+}
+@media (max-width: 420px) {
+  .hero-copy::before { left: -36px; width: 76px; height: 144px; opacity: .34; }
+  .hero-copy::after { right: -36px; width: 72px; height: 136px; opacity: .32; }
+}
+
