@@ -855,6 +855,6 @@ body {
   .guestbook-panel { padding: 18px; border-radius: 17px; }
   .guestbook-form-bottom { align-items: stretch; flex-direction: column; }
   .guestbook-form-bottom .button { width: 100%; }
-  .footer-names { font-size: 1.9rem; }
+  .footer-names { max-width: 100%; overflow: visible; font-size: clamp(1.05rem, 6.5vw, 1.55rem); white-space: nowrap; }
   .footer-bottom { flex-wrap: wrap; justify-content: center; gap: 8px 18px; }
 }
