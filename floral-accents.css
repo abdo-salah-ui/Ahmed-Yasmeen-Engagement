@@ -201,3 +201,124 @@
   .rsvp-inner .rsvp-form { margin-top: 19px; }
 }
 
+/* Frame the names with matching, softly faded bouquets */
+.hero-copy {
+  padding: clamp(34px, 4.6vw, 48px) clamp(138px, 14vw, 162px) clamp(32px, 4vw, 42px);
+  isolation: isolate;
+}
+.hero-flower {
+  top: 50%;
+  width: clamp(136px, 14vw, 168px);
+  opacity: .62;
+  filter: none;
+}
+.hero-flower-left {
+  left: 14px;
+  right: auto;
+  transform: translateY(-50%) scaleX(-1);
+}
+.hero-flower-right {
+  right: 14px;
+  left: auto;
+  transform: translateY(-50%);
+}
+.hero h1 { font-size: clamp(3.8rem, 5.3vw, 5.05rem); line-height: .84; }
+.hero-message { max-width: 390px; margin-inline: auto; }
+
+/* Add the same translucent bouquets to the map, guestbook, and closing card */
+.map-card::before,
+.guestbook-panel::before,
+.site-footer::before,
+.site-footer::after {
+  content: '';
+  position: absolute;
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  pointer-events: none;
+}
+.map-card::before,
+.map-card::after {
+  z-index: 2;
+  bottom: 92px;
+  width: clamp(78px, 9vw, 104px);
+  height: clamp(146px, 17vw, 192px);
+  opacity: .38;
+}
+.map-card::before {
+  left: 0;
+  background-image: url('assets/cover-flower-echo-right.png');
+  transform: scaleX(-1);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 22%, #000 100%);
+}
+.map-card::after {
+  right: 0;
+  background-image: url('assets/cover-flower-echo-right.png');
+  -webkit-mask-image: linear-gradient(270deg, transparent 0%, #000 22%, #000 100%);
+  mask-image: linear-gradient(270deg, transparent 0%, #000 22%, #000 100%);
+}
+.guestbook-panel::before {
+  left: -13px;
+  bottom: -34px;
+  width: clamp(78px, 9vw, 104px);
+  height: clamp(146px, 17vw, 192px);
+  background-image: url('assets/cover-flower-echo-right.png');
+  opacity: .34;
+  transform: scaleX(-1);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 20%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 20%, #000 100%);
+}
+.guestbook-panel::after { opacity: .42; }
+.site-footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.site-footer > * { position: relative; z-index: 1; }
+.site-footer::before,
+.site-footer::after {
+  top: 28px;
+  width: clamp(72px, 9vw, 104px);
+  height: clamp(136px, 17vw, 192px);
+  z-index: 0;
+  opacity: .28;
+}
+.site-footer::before {
+  left: 0;
+  background-image: url('assets/cover-flower-echo-right.png');
+  transform: scaleX(-1);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 20%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 20%, #000 100%);
+}
+.site-footer::after {
+  right: 0;
+  background-image: url('assets/cover-flower-echo-right.png');
+  -webkit-mask-image: linear-gradient(270deg, transparent 0%, #000 20%, #000 100%);
+  mask-image: linear-gradient(270deg, transparent 0%, #000 20%, #000 100%);
+}
+
+@media (max-width: 760px) {
+  .hero-copy { padding: 34px clamp(92px, 18vw, 106px) 32px; }
+  .hero-flower { width: clamp(78px, 18vw, 98px); opacity: .7; }
+  .hero-flower-left { left: 8px; }
+  .hero-flower-right { right: 8px; }
+  .hero h1 { font-size: clamp(2.65rem, 10vw, 3.45rem); line-height: .86; }
+  .hero-message { max-width: 290px; font-size: .92rem; }
+  .map-card::before, .map-card::after { width: 76px; height: 142px; bottom: 96px; opacity: .3; }
+  .site-footer::before, .site-footer::after { width: 72px; height: 136px; opacity: .22; }
+}
+@media (max-width: 420px) {
+  .hero-copy { padding: 30px clamp(56px, 16vw, 68px) 28px; }
+  .hero-flower { width: clamp(58px, 16vw, 68px); opacity: .66; }
+  .hero-flower-left { left: 5px; }
+  .hero-flower-right { right: 5px; }
+  .hero h1 { font-size: clamp(2rem, 9.1vw, 2.4rem); line-height: .89; }
+  .hero-message { max-width: 230px; font-size: .83rem; }
+  .hero-date { gap: 7px; font-size: .55rem; letter-spacing: .08em; }
+  .map-card::before, .map-card::after { width: 62px; height: 116px; bottom: 86px; opacity: .25; }
+  .guestbook-panel::before, .guestbook-panel::after { opacity: .25; }
+  .site-footer::before, .site-footer::after { width: 58px; height: 110px; opacity: .18; }
+}
+
