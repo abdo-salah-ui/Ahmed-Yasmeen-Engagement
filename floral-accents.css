@@ -116,3 +116,27 @@
   .rsvp-inner::before { left: -32px; opacity: .18; }
   .rsvp-inner::after, .guestbook-panel::after { right: -32px; opacity: .18; }
 }
+/* Keep the hero focused on the couple and let the envelope names feel handwritten */
+.hero-art, .hero-side-note { display: none !important; }
+.hero { grid-template-columns: 1fr; min-height: 570px; }
+.hero-copy { width: min(100%, 760px); justify-self: center; }
+.hero-flower { width: clamp(132px, 17vw, 180px); right: -5px; }
+.envelope-letter h2 {
+  max-width: 100%;
+  gap: 0;
+  margin: 2px 0;
+  color: #53212b;
+  font: 400 clamp(1.7rem, 4.7vw, 2.4rem)/.82 var(--script);
+  letter-spacing: 0;
+}
+.envelope-letter h2 span { white-space: nowrap; }
+.envelope-letter h2 i { color: #a67868; font-size: .68em; line-height: .8; }
+@media (max-width: 760px) {
+  .hero { min-height: auto; grid-template-columns: 1fr; padding-block: 46px; }
+  .hero-copy { width: 100%; }
+  .hero-flower { width: clamp(104px, 27vw, 132px); right: -4px; }
+}
+@media (max-width: 420px) {
+  .hero-flower { width: min(104px, 31vw); }
+  .envelope-letter h2 { font-size: clamp(1.55rem, 7vw, 1.85rem); }
+}
