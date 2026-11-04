@@ -10,9 +10,7 @@ const invitationDetails = {
   dateLabel: "Thursday, 12 November 2026",
   coverDateLabel: "November 12, 2026",
   timeLabel: "6:00 PM",
-  venueName: "Lake dream compound, T29",
-  venueAddress: "X2FC+WHF First 6th of October",
-  mapUrl: "https://maps.app.goo.gl/TJLpZW1SAsi8xXqp9?g_st=aw",
+  mapUrl: "https://maps.app.goo.gl/fbrRFj5WJJnfXKky5",
   rsvpDeadline: "Tuesday, 10 November 2026 at 11:59 PM",
   musicSrc: "",
   supabaseUrl: "https://xeusojhztxlriswqbngf.supabase.co",
@@ -33,8 +31,8 @@ setText("[data-couple-short]", `${invitationDetails.nameOne} & ${invitationDetai
 setText("[data-date-label]", invitationDetails.dateLabel);
 setText("[data-cover-date]", invitationDetails.coverDateLabel);
 setText("[data-time-label]", invitationDetails.timeLabel);
-setText("[data-venue-name]", invitationDetails.venueName);
-setText("[data-venue-address]", invitationDetails.venueAddress);
+
+
 setText("[data-rsvp-deadline]", invitationDetails.rsvpDeadline);
 document.title = `${invitationDetails.nameOne} & ${invitationDetails.nameTwo} — Engagement Invitation`;
 byId("copyrightYear").textContent = String(new Date().getFullYear());
@@ -207,23 +205,10 @@ function updateCountdown() {
 updateCountdown();
 if (Number.isFinite(eventTime) && eventTime > Date.now()) window.setInterval(updateCountdown, 1000);
 
-// A free Google Maps search link and embed need no API key.
-const mapQueryParts = [invitationDetails.venueName, invitationDetails.venueAddress].filter((part) => !isPlaceholder(part));
-if (mapQueryParts.length) {
-  const mapQuery = mapQueryParts.join(" ");
-  const encodedQuery = encodeURIComponent(mapQuery);
-  const frame = byId("mapFrame");
-  frame.src = `https://maps.google.com/maps?q=${encodedQuery}&output=embed`;
-  frame.hidden = false;
-  byId("mapFallback").hidden = true;
-  const mapLink = byId("mapLink");
-  mapLink.href = invitationDetails.mapUrl || `https://www.google.com/maps/search/?api=1&query=${encodedQuery}`;
-} else {
-  byId("mapPlaceholderLabel").textContent = "Add venue details in script.js to show the map";
-  byId("mapLink").textContent = "Set your venue";
-  byId("mapLink").href = "#details";
-  byId("mapLink").removeAttribute("target");
-}
+// Use only the location link supplied for this invitation.
+const mapLink = invitationDetails.mapUrl;
+byId("mapLink").href = mapLink;
+byId("mapPreviewLink").href = mapLink;
 
 // Music is optional. Add a licensed audio file and enter its path in musicSrc.
 const musicButton = byId("musicToggle");
