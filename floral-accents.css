@@ -1,0 +1,114 @@
+/* Carry the same peony bouquets through the envelope and all invitation cards */
+.envelope-flower-left {
+  top: -9%;
+  left: -24%;
+  width: clamp(145px, 44%, 198px);
+}
+.envelope-flower-right {
+  top: -9%;
+  right: -24%;
+  width: clamp(138px, 42%, 190px);
+}
+@media (max-width: 360px) {
+  .envelope-flower-left { top: -7%; left: -10%; width: min(138px, 55%); }
+}
+
+.countdown-section > *, .detail-card > *, .rsvp-inner > *, .guestbook-panel > * {
+  position: relative;
+  z-index: 1;
+}
+.countdown-section::before, .countdown-section::after,
+.detail-card::after, .map-card::after,
+.rsvp-inner::before, .rsvp-inner::after,
+.guestbook-panel::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  pointer-events: none;
+}
+
+.countdown-section::before {
+  top: 50%; left: -10px;
+  width: clamp(82px, 11vw, 122px); height: clamp(154px, 21vw, 230px);
+  transform: translateY(-50%);
+  background-image: url('assets/cover-flower-echo.png');
+  opacity: .6;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 100%);
+}
+.countdown-section::after {
+  top: 50%; right: -10px;
+  width: clamp(78px, 10.5vw, 116px); height: clamp(146px, 20vw, 220px);
+  transform: translateY(-50%);
+  background-image: url('assets/cover-flower-echo-right.png');
+  opacity: .58;
+  -webkit-mask-image: linear-gradient(270deg, transparent 0%, #000 18%, #000 100%);
+  mask-image: linear-gradient(270deg, transparent 0%, #000 18%, #000 100%);
+}
+
+.detail-card::after {
+  right: -13px; bottom: -25px;
+  width: clamp(76px, 9vw, 102px); height: clamp(144px, 17vw, 192px);
+  background-image: url('assets/cover-flower-echo-right.png');
+  opacity: .48;
+  -webkit-mask-image: linear-gradient(270deg, transparent 0%, #000 16%, #000 100%);
+  mask-image: linear-gradient(270deg, transparent 0%, #000 16%, #000 100%);
+}
+.map-card { position: relative; isolation: isolate; }
+.map-card::after {
+  right: -12px; bottom: 75px;
+  width: clamp(68px, 8vw, 88px); height: clamp(128px, 15vw, 166px);
+  background-image: url('assets/cover-flower-echo-right.png');
+  opacity: .4;
+  -webkit-mask-image: linear-gradient(270deg, transparent 0%, #000 18%, #000 100%);
+  mask-image: linear-gradient(270deg, transparent 0%, #000 18%, #000 100%);
+}
+.map-art, .map-card-footer { position: relative; z-index: 1; }
+.map-card-footer { z-index: 2; }
+
+.rsvp-inner { position: relative; isolation: isolate; overflow: hidden; }
+.rsvp-inner::before {
+  left: -13px; bottom: -34px;
+  width: clamp(76px, 9vw, 104px); height: clamp(144px, 17vw, 196px);
+  background-image: url('assets/cover-flower-echo.png');
+  opacity: .36;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 20%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 20%, #000 100%);
+}
+.rsvp-inner::after {
+  right: -13px; bottom: -34px;
+  width: clamp(76px, 9vw, 104px); height: clamp(144px, 17vw, 196px);
+  background-image: url('assets/cover-flower-echo-right.png');
+  opacity: .32;
+  -webkit-mask-image: linear-gradient(270deg, transparent 0%, #000 20%, #000 100%);
+  mask-image: linear-gradient(270deg, transparent 0%, #000 20%, #000 100%);
+}
+
+.guestbook-panel { position: relative; isolation: isolate; overflow: hidden; }
+.guestbook-panel::after {
+  right: -13px; bottom: -34px;
+  width: clamp(82px, 10vw, 112px); height: clamp(154px, 19vw, 212px);
+  background-image: url('assets/cover-flower-echo-right.png');
+  opacity: .38;
+  -webkit-mask-image: linear-gradient(270deg, transparent 0%, #000 20%, #000 100%);
+  mask-image: linear-gradient(270deg, transparent 0%, #000 20%, #000 100%);
+}
+
+@media (max-width: 760px) {
+  .countdown-section::before { left: -20px; opacity: .44; }
+  .countdown-section::after { right: -20px; opacity: .42; }
+  .rsvp-inner::before, .rsvp-inner::after { opacity: .23; }
+  .guestbook-panel::after { opacity: .28; }
+}
+@media (max-width: 420px) {
+  .countdown-section::before { left: -36px; width: 76px; height: 144px; opacity: .34; }
+  .countdown-section::after { right: -36px; width: 72px; height: 136px; opacity: .32; }
+  .detail-card::after { right: -22px; width: 74px; height: 140px; opacity: .34; }
+  .map-card::after { right: -24px; bottom: 74px; width: 66px; height: 124px; opacity: .28; }
+  .rsvp-inner::before { left: -32px; opacity: .18; }
+  .rsvp-inner::after, .guestbook-panel::after { right: -32px; opacity: .18; }
+}
