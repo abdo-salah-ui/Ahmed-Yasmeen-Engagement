@@ -138,8 +138,8 @@ body.has-opened .opening { position: absolute; inset: 0; z-index: -1; opacity: 0
 .envelope-scene.is-opening .envelope-top-flap { animation: flap-lifts .78s cubic-bezier(.22,.72,.24,1) .18s both; }
 @keyframes flap-lifts { 0% { opacity: 1; transform: perspective(900px) rotateX(0); } 48% { opacity: 1; transform: perspective(900px) rotateX(-104deg); } 85% { opacity: 1; transform: perspective(900px) rotateX(-160deg); } 100% { opacity: 0; transform: perspective(900px) rotateX(-178deg); } }
 .envelope-flower { position: absolute; z-index: 7; height: auto; object-fit: contain; opacity: 0; pointer-events: none; }
-.envelope-flower-left { top: -4%; left: -10%; width: clamp(118px, 21vw, 150px); clip-path: inset(0 0 0 3px); transform-origin: 72% 80%; }
-.envelope-flower-right { top: 0; right: -7%; width: clamp(98px, 16vw, 124px); clip-path: inset(0 3px 0 0); transform-origin: 35% 80%; }
+.envelope-flower-left { top: 2%; left: 4%; width: clamp(72px, 17vw, 132px); transform-origin: 72% 80%; }
+.envelope-flower-right { top: 2%; right: 4%; width: clamp(66px, 14vw, 116px); transform-origin: 35% 80%; }
 .envelope-scene.is-opening .envelope-flower-left { animation: flower-arrives .92s cubic-bezier(.2,.8,.23,1) .38s both; }
 .envelope-scene.is-opening .envelope-flower-right { animation: flower-arrives-right .88s cubic-bezier(.2,.8,.23,1) .52s both; }
 @keyframes flower-arrives { 0% { opacity: 0; transform: translate(-18px,24px) scale(.55) rotate(-13deg); } 65% { opacity: 1; transform: translate(4px,-5px) scale(1.06) rotate(2deg); } 100% { opacity: 1; transform: none; } }
@@ -432,7 +432,7 @@ body {
 
 @media (max-width: 360px) {
   .envelope-flower-right { display: none; }
-  .envelope-flower-left { left: -25%; width: 118px; }
+  .envelope-flower-left { left: 4%; width: min(82px, 32%); }
   .envelope-letter { padding-inline: 8px; }
 }
 
