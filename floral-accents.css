@@ -338,7 +338,7 @@
     24% { opacity: 1; transform: translateY(35%); }
     100% { opacity: 1; transform: translateY(-52%); }
   }
-  .envelope-letter > * { top: -30px; }
+  .envelope-letter > * { top: -18px; }
 }
 
 /* Keep both names on one line; move the bouquets clear of the title */
@@ -457,6 +457,7 @@
   right: auto;
   width: clamp(136px, 45%, 200px);
   transform: none;
+  clip-path: inset(0 0 0 2px);
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 13%, #000 100%);
   mask-image: linear-gradient(90deg, transparent 0%, #000 13%, #000 100%);
 }
@@ -466,6 +467,7 @@
   left: auto;
   width: clamp(136px, 45%, 200px);
   transform: none;
+  clip-path: inset(0 2px 0 0);
   -webkit-mask-image: linear-gradient(270deg, transparent 0%, #000 13%, #000 100%);
   mask-image: linear-gradient(270deg, transparent 0%, #000 13%, #000 100%);
 }
@@ -484,8 +486,16 @@
     top: -12%;
     width: min(158px, 44%);
   }
-  .envelope-flower-left { left: -25%; }
-  .envelope-flower-right { right: -25%; }
+  .envelope-flower-left {
+    left: -25%;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 7%, #000 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 7%, #000 100%);
+  }
+  .envelope-flower-right {
+    right: -25%;
+    -webkit-mask-image: linear-gradient(270deg, transparent 0%, #000 7%, #000 100%);
+    mask-image: linear-gradient(270deg, transparent 0%, #000 7%, #000 100%);
+  }
 }
 @media (max-width: 360px) {
   .envelope-flower-left, .envelope-flower-right {
