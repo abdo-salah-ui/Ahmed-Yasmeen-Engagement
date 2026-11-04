@@ -12,7 +12,7 @@ const invitationDetails = {
   timeLabel: "6:00 PM",
   venueName: "Lake dream compound, T29",
   venueAddress: "X2FC+WHF First 6th of October",
-  mapUrl: "https://maps.app.goo.gl/UFnxJr27ZL8i9jn6A",
+  mapUrl: "https://maps.app.goo.gl/TJLpZW1SAsi8xXqp9?g_st=aw",
   rsvpDeadline: "Tuesday, 10 November 2026 at 11:59 PM",
   musicSrc: "",
   supabaseUrl: "https://xeusojhztxlriswqbngf.supabase.co",
