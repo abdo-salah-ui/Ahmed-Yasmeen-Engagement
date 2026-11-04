@@ -839,7 +839,7 @@ body {
 
 @media (max-width: 420px) {
   .site-header { height: 62px; }
-  .wordmark { max-width: 66%; overflow: hidden; font-size: 1.08rem; white-space: nowrap; }
+  .wordmark { max-width: 100%; overflow: visible; font-size: clamp(.78rem, 4vw, .98rem); white-space: nowrap; }
   .header-actions { gap: 10px; }
   .countdown-section { padding-inline: 11px; }
   .countdown { gap: 6px; margin-top: 30px; }
