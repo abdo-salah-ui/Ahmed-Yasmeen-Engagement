@@ -323,7 +323,7 @@ async function loadGuestbook() {
   if (!guestbookReady) return;
   guestbookStatus.textContent = "Loading guest messages…";
   try {
-    const query = "?select=id,name,message,created_at&order=created_at.desc&limit=50";
+    const query = "?select=id,name,message,created_at&approved=eq.true&order=created_at.desc&limit=50";
     const response = await fetch(`${guestbookUrl}/rest/v1/guestbook_messages${query}`, {
       headers: { apikey: guestbookKey, Authorization: `Bearer ${guestbookKey}` }
     });
@@ -371,8 +371,8 @@ if (guestbookReady) {
       });
       if (!response.ok) throw new Error("Could not post message");
       guestbookForm.reset();
-      guestbookStatus.textContent = "Thank you! Your message is now in the guestbook.";
       await loadGuestbook();
+      guestbookStatus.textContent = "Thank you. Your message will appear after the couple approves it.";
     } catch {
       guestbookStatus.textContent = "Your message couldn’t be posted. Please try again.";
     } finally {
