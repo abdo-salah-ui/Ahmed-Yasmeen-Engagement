@@ -35,6 +35,22 @@ async function authRequest(path, body) {
   return data;
 }
 
+async function changeAuthPassword(password) {
+  const session = await ensureFreshSession();
+  const response = await fetch(`${apiBase}/auth/v1/user`, {
+    method: "PUT",
+    headers: {
+      apikey: adminConfig.publishableKey,
+      Authorization: `Bearer ${session.access_token}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ password })
+  });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(data.msg || data.message || data.error_description || "The password could not be changed.");
+  return data;
+}
+
 async function ensureFreshSession() {
   if (!currentSession?.access_token) throw new Error("Please sign in again.");
   if (currentSession.expires_at && Date.now() < currentSession.expires_at - 45_000) return currentSession;
@@ -262,6 +278,33 @@ $("refreshButton").addEventListener("click", loadData);
 $("rsvpTab").addEventListener("click", () => selectTab("rsvp"));
 $("guestbookTab").addEventListener("click", () => selectTab("guestbook"));
 $("showApprovedOnly").addEventListener("change", renderMessages);
+
+$("passwordForm").addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const password = $("newPassword").value;
+  const confirmation = $("confirmPassword").value;
+  const button = $("updatePasswordButton");
+  const status = $("passwordStatus");
+  status.classList.remove("is-error");
+  if (password !== confirmation) {
+    status.textContent = "The passwords do not match.";
+    status.classList.add("is-error");
+    return;
+  }
+  button.disabled = true;
+  status.textContent = "Updating password…";
+  try {
+    await changeAuthPassword(password);
+    $("passwordForm").reset();
+    status.textContent = "Password updated. Use it the next time you sign in.";
+  } catch (error) {
+    status.textContent = error.message;
+    status.classList.add("is-error");
+    if (/sign in again|session expired/i.test(error.message)) await signOut(false);
+  } finally {
+    button.disabled = false;
+  }
+});
 
 currentSession = readSession();
 if (currentSession?.access_token) {

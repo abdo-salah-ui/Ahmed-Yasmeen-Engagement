@@ -54,6 +54,21 @@ h2 { font-size: 30px; }
 .dashboard-heading .intro-copy { margin-top: 9px; }
 .outline-button { flex: none; padding: 11px 16px; color: var(--wine); border: 1px solid var(--line); background: rgba(255,255,255,.52); font-weight: 600; }
 .outline-button:hover { background: var(--paper); }
+.account-settings { margin-top: 20px; padding: 17px 20px; border: 1px solid var(--line); border-radius: 14px; background: rgba(255,250,243,.58); }
+.account-settings summary { display: flex; justify-content: space-between; gap: 14px; align-items: center; color: var(--wine); cursor: pointer; font-size: 13px; font-weight: 700; list-style: none; }
+.account-settings summary::-webkit-details-marker { display: none; }
+.account-settings summary::after { content: "+"; margin-left: auto; color: var(--wine-3); font-size: 19px; line-height: 1; }
+.account-settings[open] summary::after { content: "−"; }
+.settings-hint { color: #8f7e77; font-size: 11px; font-weight: 500; }
+.settings-copy { margin: 12px 0; color: #856f6b; font-size: 12px; line-height: 1.6; }
+.password-form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: end; }
+.password-field { display: grid; gap: 7px; }
+.password-form label { color: #806e68; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.password-form input { min-width: 0; width: 100%; padding: 11px 12px; border: 1px solid rgba(91, 27, 41, .22); border-radius: 9px; outline: none; color: var(--wine); background: #fffdf9; }
+.password-form input:focus { border-color: var(--wine-3); box-shadow: 0 0 0 3px rgba(124, 53, 64, .11); }
+.password-form button { grid-column: 1 / -1; justify-self: start; margin-top: 4px; }
+.settings-status { min-height: 18px; margin: 10px 0 0; color: #6e805d; font-size: 11px; }
+.settings-status.is-error { color: #87353b; }
 .summary-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; margin-top: 30px; }
 .summary-card { display: grid; grid-template-columns: 1fr auto; align-items: center; padding: 20px 23px; border: 1px solid var(--line); border-radius: 15px; background: rgba(255,250,243,.78); }
 .summary-label { align-self: end; color: #8f7e77; font-size: 10px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
@@ -94,6 +109,9 @@ h2 { font-size: 30px; }
   .dashboard { padding-top: 34px; }
   .dashboard-heading { align-items: flex-start; }
   .dashboard-heading .outline-button { padding: 9px 11px; font-size: 11px; }
+  .account-settings { padding: 15px; }
+  .password-form { grid-template-columns: 1fr; gap: 10px; }
+  .password-form button { grid-column: 1; }
   .summary-grid { gap: 9px; margin-top: 22px; }
   .summary-card { padding: 15px 13px; }
   .summary-card strong { font-size: 31px; }

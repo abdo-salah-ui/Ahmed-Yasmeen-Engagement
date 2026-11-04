@@ -7,8 +7,8 @@
   <meta name="theme-color" content="#3b1019">
   <title>A &amp; Y — Private Dashboard</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="admin.css?v=20261104-1">
-  <script src="admin.js?v=20261104-1" defer></script>
+  <link rel="stylesheet" href="admin.css?v=20261104-2">
+  <script src="admin.js?v=20261104-2" defer></script>
 </head>
 <body>
   <main class="admin-shell">
@@ -40,6 +40,23 @@
         </div>
         <button class="outline-button" id="refreshButton" type="button"><span aria-hidden="true">↻</span> Refresh</button>
       </div>
+
+      <details class="account-settings">
+        <summary><span>Account settings</span><span class="settings-hint">Change password</span></summary>
+        <p class="settings-copy">Choose a new password for the shared dashboard account. You will need to sign in with it next time.</p>
+        <form id="passwordForm" class="password-form">
+          <div class="password-field">
+            <label for="newPassword">New password</label>
+            <input id="newPassword" name="newPassword" type="password" autocomplete="new-password" minlength="6" required>
+          </div>
+          <div class="password-field">
+            <label for="confirmPassword">Confirm new password</label>
+            <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="new-password" minlength="6" required>
+          </div>
+          <button class="outline-button" id="updatePasswordButton" type="submit">Update password</button>
+        </form>
+        <p class="settings-status" id="passwordStatus" role="status" aria-live="polite"></p>
+      </details>
 
       <div class="summary-grid" aria-label="Guest response totals">
         <article class="summary-card"><span class="summary-label">RSVPs</span><strong id="rsvpTotal">0</strong><small id="rsvpYesNo">0 attending · 0 unable</small></article>
