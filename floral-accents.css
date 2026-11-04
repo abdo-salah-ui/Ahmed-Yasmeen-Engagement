@@ -322,16 +322,22 @@
   .site-footer::before, .site-footer::after { width: 58px; height: 110px; opacity: .18; }
 }
 
-/* Raise the full size letter above the envelope's diagonal front flap on phones */
+/* Raise the letter and its full size text above the envelope's diagonal front flap */
+@keyframes letter-rise {
+  0% { opacity: 0; transform: translateY(47%); }
+  24% { opacity: 1; transform: translateY(35%); }
+  100% { opacity: 1; transform: translateY(-42%); }
+}
+.envelope-letter > * {
+  position: relative;
+  top: -42px;
+}
 @media (max-width: 760px) {
   @keyframes letter-rise {
     0% { opacity: 0; transform: translateY(47%); }
     24% { opacity: 1; transform: translateY(35%); }
     100% { opacity: 1; transform: translateY(-52%); }
   }
-  .envelope-letter > * {
-    position: relative;
-    top: -30px;
-  }
+  .envelope-letter > * { top: -30px; }
 }
 
