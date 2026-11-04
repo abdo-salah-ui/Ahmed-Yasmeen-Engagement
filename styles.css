@@ -453,3 +453,13 @@ body {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
 
+
+/* Keep the envelope florals tucked neatly along its side edges */
+.envelope-flower { z-index: 5; filter: drop-shadow(0 3px 4px rgba(24,0,3,.26)); }
+.envelope-flower-left { top: 13%; left: 0; width: clamp(62px, 27%, 118px); }
+.envelope-flower-right { top: 13%; right: 0; width: clamp(58px, 24%, 104px); }
+
+@media (max-width: 360px) {
+  .envelope-flower-left { top: 13%; left: 0; width: clamp(58px, 24%, 74px); }
+}
+
