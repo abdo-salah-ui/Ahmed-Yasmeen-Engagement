@@ -373,3 +373,36 @@
   .hero-flower-right { right: 0; }
 }
 
+/* Standalone celebration card between the hero and countdown */
+.celebration-section {
+  position: relative;
+  z-index: 1;
+  padding-bottom: clamp(42px, 5vw, 66px);
+}
+.celebration-panel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: min(760px, calc(100% - 56px));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  padding: clamp(18px, 3vw, 30px);
+  border: 1px solid rgba(216,193,143,.25);
+  border-radius: 22px;
+  background: linear-gradient(145deg, #551923, #350b12 92%);
+  box-shadow: 0 20px 44px rgba(12,0,3,.2), inset 0 1px rgba(255,255,255,.04);
+}
+.celebration-panel .rsvp-event-card { width: min(100%, 620px); margin: 0; }
+.celebration-panel .event-rsvp-divider { margin: 22px auto 0; }
+@media (max-width: 760px) {
+  .celebration-section { padding-bottom: 46px; }
+  .celebration-panel { width: calc(100% - 38px); padding: clamp(20px, 8vw, 38px); }
+  .celebration-panel .rsvp-event-card { width: 100%; }
+}
+@media (max-width: 420px) {
+  .celebration-panel { width: calc(100% - 28px); padding: clamp(15px, 7vw, 28px); border-radius: 18px; }
+  .celebration-panel .event-rsvp-divider { margin-top: 17px; }
+}
+
